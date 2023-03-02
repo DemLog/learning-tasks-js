@@ -20,7 +20,7 @@ export function calculateSum(firstNum: string, secondNum: string): string {
         digits.push(tempDigit);
     }
 
-    return digits.reverse().join('');
+    return digits.reverse().join('').replace(/^0+/, "");
 }
 
 export function calculateMinus(firstNum: string, secondNum: string): string {
@@ -63,7 +63,7 @@ export function calculateMinus(firstNum: string, secondNum: string): string {
     }
 
     digits.push(numberSign);
-    return digits.reverse().join('');
+    return digits.reverse().join('').replace(/^0+/, "");
 }
 
 export function calculateMulti(firstNum: string, secondNum: string): string {
@@ -117,7 +117,7 @@ export function calculateMulti(firstNum: string, secondNum: string): string {
         tempDigit = 0;
     }
 
-    return numberSign + digits.reverse().join('');
+    return numberSign + digits.reverse().join('').replace(/^0+/, "");
 }
 
 function compareStrings(str1: string, str2: string): boolean {
@@ -165,5 +165,5 @@ export function calculateDiv(firstNum: string, secondNum: string): string {
         tempDigit = String(+calculateMinus(tempDigit, calculateMulti(secondNum, String(tempQuotient))) || "");
     }
 
-    return numberSign + Number(digits.join('')).toString();
+    return numberSign + digits.join('').replace(/^0+/, "");
 }
